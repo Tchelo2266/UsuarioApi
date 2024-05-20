@@ -24,7 +24,7 @@ namespace UsuarioAPI8.Services
         {
             Usuario usuario = _mapper.Map<Usuario>(dto);
             IdentityResult resultado = await _userManager.CreateAsync(usuario, dto.Password);
-            
+
             throw new NotImplementedException("Falha ao cadastrar o usuário...");
         }
 
@@ -38,7 +38,11 @@ namespace UsuarioAPI8.Services
 
             var usuario = _signInManager.UserManager.Users.FirstOrDefault(user => user.NormalizedUserName == dto.Username.ToUpper());
 
-            var token = _tokenService.GenerateToken(usuario);
+            var token = "";
+            if(usuario != null)
+            {
+                token = _tokenService.GenerateToken(usuario);
+            }
 
             return token;
         }

@@ -20,7 +20,7 @@ namespace UsuarioAPI8.Services
         {
             Claim[] claims = new Claim[]
             {
-                new Claim("username", usuario.UserName),
+                new Claim("username", usuario.UserName ?? ""),
                 new Claim("id", usuario.Id),
                 new Claim("documento", usuario.Documento),
             };

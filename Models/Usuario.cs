@@ -7,7 +7,7 @@ namespace UsuarioAPI8.Models
     {
         [Required]
         [MaxLength(30)]
-        public string Documento { get; set; }
+        public required string Documento { get; set; }
         public Usuario() : base() { }
     }
 }

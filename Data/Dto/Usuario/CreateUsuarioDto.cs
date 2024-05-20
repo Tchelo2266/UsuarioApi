@@ -5,17 +5,17 @@ namespace UsuarioAPI8.Data.Dto.Usuario
     public class CreateUsuarioDto
     {
         [Required]
-        public string Username { get; set; }
-        
+        public required string Username { get; set; }
+
         [Required]
         [DataType(DataType.Password)]
-        public string Password { get; set; }
+        public required string Password { get; set; }
         [Required]
         [Compare("Password")]
-        public string RePassword { get; set; }
+        public required string RePassword { get; set; }
         [Required]
         [MaxLength(30)]
-        public string Documento { get; set; }
+        public required string Documento { get; set; }
 
     }
 }
