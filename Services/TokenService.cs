@@ -25,14 +25,14 @@ namespace UsuarioAPI8.Services
                 new Claim("documento", usuario.Documento),
             };
 
-            //var chave = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("SKJFHAK32323892839ASDHIOHKJS397EDWKHFJ"));
-            var chave = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["SymmetricSecurityKey"]));
+            var chave = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("SKJFHAK32323892839ASDHIOHKJS397EDWKHFJ"));
+            //var chave = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["SymmetricSecurityKey"]));
 
             var signInCredentials = new SigningCredentials(chave, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
-                expires: DateTime.UtcNow.AddMinutes(5), 
-                claims: claims, 
+                expires: DateTime.UtcNow.AddMinutes(5),
+                claims: claims,
                 signingCredentials: signInCredentials
             );
             return new JwtSecurityTokenHandler().WriteToken(token);

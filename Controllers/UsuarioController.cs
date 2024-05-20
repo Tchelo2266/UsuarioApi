@@ -15,7 +15,7 @@ namespace UsuarioAPI8.Controllers
             _usuarioService = usuarioService;
         }
 
-        [HttpPost("/cadastro")]
+        [HttpPost]
         public async Task<IActionResult> CadastraUsuario([FromBody] CreateUsuarioDto dto)
         {
             await _usuarioService.CadastraAsync(dto);

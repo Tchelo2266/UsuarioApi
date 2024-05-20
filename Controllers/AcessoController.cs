@@ -9,7 +9,7 @@ namespace UsuarioAPI8.Controllers
     {
         [HttpGet]
         [Authorize]
-        public IActionResult Get() 
+        public IActionResult Get()
         {
             return Ok("Acesso permitido");
         }
